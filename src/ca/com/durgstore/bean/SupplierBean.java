@@ -1,4 +1,5 @@
 package ca.com.durgstore.bean;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
@@ -11,14 +12,27 @@ import ca.com.drugstore.domain.Supplier;
 @ManagedBean(name = "MBSupplier")
 @ViewScoped
 public class SupplierBean {
+	private Supplier supplier ;
+
 	private ListDataModel<Supplier> itens;
+
+	public Supplier getSuplier() {
+		return supplier;
+	}
+
+	public void setSuplier(Supplier suplier) {
+		this.supplier = suplier;
+	}
+
 	public ListDataModel<Supplier> getItens() {
 		return itens;
 	}
+
 	public void setItens(ListDataModel<Supplier> itens) {
 		this.itens = itens;
 	}
-@PostConstruct
+
+	@PostConstruct
 	// carrregar tabela
 	public void prepareSearch() {
 		try {
@@ -31,6 +45,21 @@ public class SupplierBean {
 			itens = new ListDataModel<Supplier>(listing);
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		}
+	}
+	public void preparenew(){
+		supplier = new Supplier();
+	}
+
+	public void newsup() {
+		try {
+			SupplierDAO dao = new SupplierDAO();
+			dao.save(supplier);
+			
+			ArrayList<Supplier> listing = dao.listing();
+			itens = new ListDataModel<Supplier>(listing);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }

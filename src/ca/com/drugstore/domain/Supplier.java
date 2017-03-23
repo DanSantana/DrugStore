@@ -1,14 +1,14 @@
 package ca.com.drugstore.domain;
 
 public class Supplier {
-	private Long idsuplier;
+	private Long idsupplier;
 	private String description;
 	
-	public Long getIdsuplier() {
-		return idsuplier;
+	public Long getIdsupplier() {
+		return idsupplier;
 	}
-	public void setIdsuplier(Long idsuplier) {
-		this.idsuplier = idsuplier;
+	public void setIdsupplier(Long idsuplier) {
+		this.idsupplier = idsuplier;
 	}
 	public String getDescription() {
 		return description;
@@ -19,7 +19,7 @@ public class Supplier {
 	
 	@Override
 	public String toString() {
-		String dataout = idsuplier + " - "+ description;
+		String dataout = idsupplier + " - "+ description;
 		return dataout;
 	}
 

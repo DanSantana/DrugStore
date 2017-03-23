@@ -21,8 +21,7 @@ public class SupplierDAO {
 		Connection con = ConnectionFactory.openConnectio();
 		PreparedStatement cmd = con.prepareStatement(sql.toString());
 		// mapeamento de objeto relacional
-		cmd.setString(1, sup.getDescription());// 1= quantidade de "?"
-												// valores
+		cmd.setString(1, sup.getDescription());// 1= quantidade de "?"// valores
 		cmd.executeUpdate();
 	}
 
@@ -34,7 +33,7 @@ public class SupplierDAO {
 
 		Connection con = ConnectionFactory.openConnectio();
 		PreparedStatement cmd = con.prepareStatement(sql.toString());
-		cmd.setLong(1, sup.getIdsuplier());
+		cmd.setLong(1, sup.getIdsupplier());
 		cmd.executeUpdate();
 	}
 
@@ -48,7 +47,7 @@ public class SupplierDAO {
 		Connection con = ConnectionFactory.openConnectio();
 		PreparedStatement cmd = con.prepareStatement(sql.toString());
 		cmd.setString(1, sup.getDescription());
-		cmd.setLong(2, sup.getIdsuplier());
+		cmd.setLong(2, sup.getIdsupplier());
 
 		cmd.executeUpdate();
 	}
@@ -63,14 +62,14 @@ public class SupplierDAO {
 		Connection con = ConnectionFactory.openConnectio();
 
 		PreparedStatement cmd = con.prepareStatement(sql.toString());
-		cmd.setLong(1, sup.getIdsuplier());
+		cmd.setLong(1, sup.getIdsupplier());
 		ResultSet resultado = cmd.executeQuery();
 
 		Supplier retorno = null;
 
 		if (resultado.next()) {
 			retorno = new Supplier();
-			retorno.setIdsuplier(resultado.getLong("idsuplier"));
+			retorno.setIdsupplier(resultado.getLong("idsuplier"));
 			retorno.setDescription(resultado.getString("description"));
 		}
 		return retorno;
@@ -92,7 +91,7 @@ public class SupplierDAO {
 		ArrayList<Supplier> listing = new ArrayList<Supplier>();
 		while (result.next()) {
 			Supplier s = new Supplier();
-			s.setIdsuplier(result.getLong("idsuplier"));
+			s.setIdsupplier(result.getLong("idsuplier"));
 			s.setDescription(result.getString("description"));
 			listing.add(s);
 		}
@@ -118,7 +117,7 @@ public class SupplierDAO {
 		ArrayList<Supplier> listing = new ArrayList<Supplier>();
 		while (result.next()) {
 			Supplier item = new Supplier();
-			item.setIdsuplier(result.getLong("idsuplier"));
+			item.setIdsupplier(result.getLong("idsuplier"));
 			item.setDescription(result.getString("description"));
 			listing.add(item);
 		}
